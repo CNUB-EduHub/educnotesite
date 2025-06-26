@@ -1,94 +1,88 @@
+/* style.css */
+
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f8fc;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
   color: #333;
 }
 
 header {
-  background-color: navy blue;
-  color: #ffcc00;
-  padding: 1.5rem 1rem;
+  background-color: #21409a;
+  color: #fff;
+  padding: 2rem;
   text-align: center;
+  border-bottom: 5px solid #fdb813;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
 }
 
 section {
-  padding: 1.5rem 1rem;
-  background: #fff;
-  margin: 1rem auto;
+  padding: 2rem;
   max-width: 800px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-radius: 10px;
+  margin: auto;
+  background-color: #fff;
+  margin-top: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
-h1 {
-  font-size: 1.75rem;
-  margin: 0 0 0.5rem;
+section h2 {
+  color: #21409a;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
-h2 {
-  font-size: 1.3rem;
-  margin-top: 0;
-}
-
-input,
-textarea,
-button {
-  width: 100%;
-  margin: 0.5rem 0;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  box-sizing: border-box;
+form input[type="file"] {
+  margin-bottom: 1rem;
 }
 
 button {
-  background-color: maroon;
+  background-color: #fdb813;
   color: #fff;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #a00000;
+  background-color: #e89c0f;
+}
+
+textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #f0f4ff;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 5px solid #21409a;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  font-size: 0.9rem;
-  color: #888;
-  margin-top: 2rem;
+  background-color: #21409a;
+  color: #fff;
+  margin-top: 3rem;
 }
 
-@media (max-width: 600px) {
-  body {
-    font-size: 16px;
-  }
-
-  header {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  input,
-  textarea,
-  button {
-    font-size: 1rem;
-    padding: 0.65rem;
-  }
-
-  section {
-    margin: 1rem 0.5rem;
-    padding: 1rem;
-  }
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
