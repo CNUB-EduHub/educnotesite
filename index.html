@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduHub-CNU Balamban</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>📚 EduHub: CNUB Balamban</h1>
+    <p>Share your notes. Help your peers. Study smarter. ❤️💛</p>
+  </header>
+
+  <section id="upload">
+    <h2>📤 Upload Your Notes</h2>
+    <form id="uploadForm">
+      <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" required />
+      <button type="submit">Upload & Summarize</button>
+    </form>
+    <p id="summaryOutput">🔒 AI summarization will be added here soon. (Feature in development)</p>
+  </section>
+
+  <section id="notes">
+    <h2>📁 Shared Notes Archive</h2>
+    <ul id="notesList">
+      <li><a href="#">Sample Note 1 (First Year)</a></li>
+      <li><a href="#">Sample Note 2 (Second Year)</a></li>
+    </ul>
+    <p>📌 Filter by subject and year feature coming soon!</p>
+  </section>
+
+  <section id="flashcards">
+    <h2>🧠 Flashcards Generator</h2>
+    <p>Paste your lesson content and click to generate flashcards.</p>
+    <textarea id="flashcardInput" rows="5" placeholder="Paste your lesson or notes here..."></textarea>
+    <button onclick="generateFlashcards()">Generate Flashcards</button>
+    <ul id="flashcardOutput"></ul>
+    <p>⚠️ Flashcard AI generation feature will be live in future updates.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 CNUB Education Council – EduHub Balamban ❤️💛 | Powered by OpenAI</p>
+  </footer>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const summaryOutput = document.getElementById("summaryOutput");
+      summaryOutput.textContent = "🔄 Upload received. AI summarization feature is under development.";
+    });
+
+    function generateFlashcards() {
+      const input = document.getElementById("flashcardInput").value;
+      const output = document.getElementById("flashcardOutput");
+      output.innerHTML = "";
+      if (!input.trim()) {
+        output.innerHTML = "<li>Please enter some content to generate flashcards.</li>";
+        return;
+      }
+      const exampleFlashcards = [
+        { q: "What is the main idea of the text?", a: "(Your answer here)" },
+        { q: "List one key point from the content.", a: "(Your answer here)" },
+      ];
+      exampleFlashcards.forEach(card => {
+        const li = document.createElement("li");
+        li.innerHTML = `<strong>Q:</strong> ${card.q}<br/><strong>A:</strong> ${card.a}`;
+        output.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>
