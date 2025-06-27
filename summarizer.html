@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduHub Summarizer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 2rem;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 16px;
+      background-color: #0070f3;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .output {
+      margin-top: 1.5rem;
+      background-color: #f9f9f9;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 AI Summarizer</h1>
+
+  <textarea id="textInput" placeholder="Paste your notes here..."></textarea>
+  <br>
+  <button onclick="summarize()">Summarize</button>
+
+  <div class="output" id="summaryOutput"></div>
+
+  <script>
+    async function summarize() {
+      const input = document.getElementById("textInput").value;
+      const outputDiv = document.getElementById("summaryOutput");
+      outputDiv.innerHTML = "⏳ Summarizing... please wait...";
+
+      try {
+        const response = await fetch("https://summarizer-api-7c91.vercel.app/api", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ text: input })
+        });
+
+        const data = await response.json();
+
+        if (data.summary) {
+          outputDiv.innerHTML = `<strong>Summary:</strong><br><br>${data.summary.replace(/\n/g, "<br>")}`;
+        } else if (data.error) {
+          outputDiv.innerHTML = `❌ Error: ${data.error}`;
+        } else {
+          outputDiv.innerHTML = "⚠️ Unknown response.";
+        }
+
+      } catch (err) {
+        outputDiv.innerHTML = "❌ Something went wrong.";
+        console.error(err);
+      }
+    }
+  </script>
+
+</body>
+</html>
